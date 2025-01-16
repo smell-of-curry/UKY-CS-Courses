@@ -1,0 +1,75 @@
+# Ignore object files and compiled binaries
+*.o
+*.obj
+*.exe
+*.out
+*.dll
+*.so
+*.dylib
+
+# Ignore build directories
+/build/
+/bin/
+/debug/
+/release/
+/dist/
+/out/
+
+# Ignore IDE/editor specific files
+# Visual Studio
+.vs
+x64
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+*.suo
+*.user
+*.userossc
+*.usr
+*.opendb
+*.VC.db
+*.VC.VC.opendb
+*.vsidx
+*.tlog
+*.ilk
+*.idb
+*.pdb
+
+# Code::Blocks
+*.cbp
+*.layout
+*.depend
+*.layout
+*.depend
+
+# CLion
+.idea/
+*.iml
+cmake-build-*/
+
+# Eclipse
+.project
+.cproject
+.settings/
+
+# Xcode
+*.pbxproj
+*.xcworkspace
+*.xcuserdata/
+*.xcuserdatad/
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+# Ignore temporary files
+*~
+*.tmp
+*.log
+*.swp
+.DS_Store
+Thumbs.db
+
+# Ignore environment files
+.env
+*.ipch
