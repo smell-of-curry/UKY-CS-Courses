@@ -4,10 +4,10 @@
 using namespace std;
 
 // The name of the TA
-const string TAName = "Bipin";
+const string TAName = "xxxx";
 
 // The name of the user
-const string yourName = "Ean Lowell";
+const string yourName = "xxxx";
 
 // 1 hour = 60 minutes
 const int HOUR_TO_MIN = 60;
