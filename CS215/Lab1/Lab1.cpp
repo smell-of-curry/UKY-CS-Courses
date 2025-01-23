@@ -61,7 +61,7 @@ int main()
 
         // Check if the input is an integer
         if (cin.fail() || tempCourses != floor(tempCourses) || tempCourses < 0) {
-            cout << "Please enter a valid whole number for courses: ";
+            cerr << "Please enter a valid whole number for courses: ";
             cin.clear(); // Clear the error state
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
         }
@@ -83,7 +83,7 @@ int main()
 
         // Check if the input is a non-negative double
         if (cin.fail() || tempHours < 0) {
-            cout << "Please enter a valid number for hours: ";
+            cerr << "Please enter a valid number for hours: ";
             cin.clear(); // Clear the error state
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
         }
