@@ -58,7 +58,6 @@ void IMDB::insert_an_actor(string actorName, set<string> movieTitles)
     // First upgrade actors_db
     // if the key actorName does not exist in actors_db
     //        add the key to the map actors_db
-
     if (!isExistingActor(actorName))
         actors_db[actorName] = movieTitles;
     else // if the key actorName is an existing key in actors_db
@@ -69,7 +68,6 @@ void IMDB::insert_an_actor(string actorName, set<string> movieTitles)
     // Second upgrade movies_db
     // for each movieTitle in the set of movieTitles,
     // insert actorName to its actors set
-
     for (auto it = movieTitles.begin(); it != movieTitles.end(); it++)
     {
         // if *it is not an existing key in movies_db
@@ -94,6 +92,7 @@ string IMDB::matchExistingMovie(string movieTitle) const
 {
     string matchedMovie;
     bool found = false;
+
     // generate the regular expression to match 
     // which contains movieTitle as a substring
     // note that it performs case insensitive matching
@@ -116,14 +115,14 @@ string IMDB::matchExistingMovie(string movieTitle) const
 // return true if it does; otherwise return false
 bool IMDB::isExistingMovie(string movieTitle) const
 {
-	return movies_db.find(movieTitle) != movies_db.end();
+    return movies_db.find(movieTitle) != movies_db.end();
 }
 
 // check if an actorName does exist in the map
 // return true if it does; otherwise return false
 bool IMDB::isExistingActor(string actorName) const
 {
-	return actors_db.find(actorName) != actors_db.end();
+    return actors_db.find(actorName) != actors_db.end();
 }
 
 // Return a set of movie titles which actorName is in
@@ -131,7 +130,7 @@ bool IMDB::isExistingActor(string actorName) const
 // display message and return an empty set
 set<string> IMDB::find_movies_for_an_actor(string actorName) const
 {
-    auto it = actors_db.find(actorName); // Correctly use actors_db
+    auto it = actors_db.find(actorName);
     if (it != actors_db.end()) {
         return it->second; // Access the set of movies
     }
@@ -145,7 +144,7 @@ set<string> IMDB::find_movies_for_an_actor(string actorName) const
 // display message and return an empty set
 set<string> IMDB::find_actors_in_a_movie(string movieTitle) const
 {
-    auto it = movies_db.find(movieTitle); // Correctly use movies_db
+    auto it = movies_db.find(movieTitle);
     if (it != movies_db.end()) {
         return it->second; // Access the set of actors
     }
