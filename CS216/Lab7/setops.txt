@@ -1,0 +1,99 @@
+.----------------------------------------------------------------------------.
+|                                                                            |
+|                       Set Operations in the Unix Shell             v1.01   |
+|                                                                            |
+'----------------------------------------------------------------------------'
+| Peteris Krumins (peter@catonmat.net), 2008.12.02                           |
+| http://www.catonmat.net  -  good coders code, great reuse                  |
+|                                                                            |
+| Released under the GNU Free Document License                               |
+'----------------------------------------------------------------------------'
+
+Set operations covered in this document:
+----------------------------------------
+ - Set Membership.
+ - Set Equality.
+ - Set Union.
+ - Set Intersection.
+ - Set Symmetric Difference.
+ - Minimum.
+ - Maximum.
+
+Full explanation of these operations at:
+http://www.catonmat.net/blog/set-operations-in-unix-shell/
+
+
+Set Membership
+--------------
+
+$ grep -xc 'element' set    # outputs 1 if element is in set
+                            # outputs >1 if set is a multi-set
+                            # outputs 0 if element is not in set
+
+$ grep -xq 'element' set    # returns 0 (true)  if element is in set
+                            # returns 1 (false) if element is not in set
+
+
+Set Equality
+------------
+
+$ diff -q <(sort set1) <(sort set2) # returns 0 if set1 is equal to set2
+                                    # returns 1 if set1 != set2
+
+$ diff -q <(sort set1 | uniq) <(sort set2 | uniq)
+# collapses multi-sets into sets and does the same as previous
+
+
+Set Union
+---------
+
+$ cat set1 set2     # outputs union of set1 and set2
+                    # assumes they are disjoint
+
+$ cat set1 set2 ... setn   # union over n sets and assume they are disjoint
+
+$ cat set1 set2 | sort -u  # same, but assumes they are not disjoint
+
+$ sort set1 set2 | uniq
+
+$ sort -u set1 set2
+
+
+Set Intersection
+----------------
+
+$ grep -xF -f set1 set2
+
+$ sort set1 set2 | uniq -d
+
+
+Set Symmetric Difference
+------------------------
+
+$ sort set1 set2 | uniq -u
+
+$ cat <(grep -vxF -f set1 set2) <(grep -vxF -f set2 set1)
+
+$ grep -vxF -f set1 set2; grep -vxF -f set2 set1
+
+
+Minimum
+-------
+
+$ head -1 <(sort set)    # outputs the minimum element in the set
+
+
+Maximum
+-------
+
+$ tail -1 <(sort set)    # outputs the maximum element in the set
+
+.---------------------------------------------------------------------------.
+| Peteris Krumins (peter@catonmat.net), 2008.12.02                          |
+| http://www.catonmat.net  -  good coders code, great reuse                 |
+|                                                                           |
+| Released under the GNU Free Document License                      v1.01   |
+|                                                                           |
+| Thanks to waldner and pgas from #awk on FreeNode                          |
+| Power set function by Andreas: http://lysium.de/blog                      |
+'---------------------------------------------------------------------------'

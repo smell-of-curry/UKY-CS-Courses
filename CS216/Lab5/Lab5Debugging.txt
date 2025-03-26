@@ -1,0 +1,9 @@
+#0  __memcpy_avx512_unaligned_erms () at ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:265
+#1  0x00007ffff7b8da30 in _IO_new_file_xsputn (n=140737488343712, data=<optimized out>, f=<optimized out>) at ./libio/fileops.c:1236
+#2  _IO_new_file_xsputn (f=0x7ffff7cfe5c0 <_IO_2_1_stdout_>, data=<optimized out>, n=140737488343712) at ./libio/fileops.c:1197
+#3  0x00007ffff7b80a02 in __GI__IO_fwrite (buf=0x4, size=1, count=140737488343712, fp=0x7ffff7cfe5c0 <_IO_2_1_stdout_>) at ./libio/libioP.h:1030
+#4  0x00007ffff7e90dc4 in std::basic_streambuf<char, std::char_traits<char> >::sputn (this=<optimized out>, __s=0x4 <error: Cannot access memory at address 0x4>, __n=140737488343712) at /build/gcc-14-ig5ci0/gcc-14-14.2.0/build/x86_64-linux-gnu/libstdc++-v3/include/streambuf:457
+#5  std::__ostream_write<char, std::char_traits<char> > (__out=..., __s=0x4 <error: Cannot access memory at address 0x4>, __n=140737488343712) at /build/gcc-14-ig5ci0/gcc-14-14.2.0/build/x86_64-linux-gnu/libstdc++-v3/include/bits/ostream_insert.h:53
+#6  std::__ostream_insert<char, std::char_traits<char> > (__out=..., __s=0x4 <error: Cannot access memory at address 0x4>, __n=140737488343712) at /build/gcc-14-ig5ci0/gcc-14-14.2.0/build/x86_64-linux-gnu/libstdc++-v3/include/bits/ostream_insert.h:104
+#7  0x000055555555a6ed in analyzeCoActors (imdb=...) at Lab5.cpp:153
+#8  0x000055555555a300 in main (argc=2, argv=0x7fffffffd928) at Lab5.cpp:115

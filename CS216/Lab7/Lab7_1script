@@ -1,0 +1,68 @@
+#!/bin/bash
+clear    
+hname=`hostname`
+echo 'Welcome on $hname!'
+echo 'Is this what I want to display?'
+echo
+echo "Welcome on $hname!"
+echo `date`     
+echo
+#ask if the user wants to see a few random numbers?(Y for yes, N or no)
+#demonstrate how to generate random numbers in the specified range [min, max]
+min=1
+max=9
+maxNum=10
+howmanySets=2
+echo "Welcome to CS216 Demo for Basic Set Operations!"
+echo "Do you want me to show you how to generate two sets of random numbers in the range of [$min, $max], then apply basic set operations (type Y for Yes or N for No)?"
+read usr_option
+    
+case $usr_option in
+    [Yy])for ((i=0; i < $howmanySets; i++))
+         do
+            howmanyNum=$(((RANDOM % $maxNum) +1))
+            echo "I will generate $howmanyNum random numbers in the range of [$min, $max]:"
+            for ((j=0; j < $howmanyNum; j++))
+            do
+                rnum=$(((RANDOM % (max - min + 1)) +min))
+                echo "No. $((j+1)): $rnum"
+                echo $rnum >> file$i
+            done
+         done
+         echo
+         # create set1 (please note that no duplicate member is allowed in a set)
+         echo "Set 1 contains: "
+         sort -n -u file0 > set1
+         cat set1
+         echo
+         
+         # create set2 (please note that no duplicate member is allowed in a set)
+         echo "Set 2 contains: "
+         sort -n -u file1 > set2
+         cat set2
+         echo
+
+         # calculate the union of set1 and set2
+         echo "The Union of set1 and set2: "
+         sort -u set1 set2
+         echo
+
+         # calculate the intersection of set1 and set2
+         echo "The Intersection of set1 and set2: "
+         sort set1 set2 | uniq -d
+         echo 
+         
+         # calculate the symmetric difference of set1 and set2
+         echo "The Symmetric Difference of set1 and set2: "
+         sort set1 set2 | uniq -u
+         echo
+
+         #delete the temporary files
+         echo "Delete all temporary files..."
+         rm file? set?
+         ;;   
+    [Nn]);;
+    *)echo "Your choice is not valid";;
+esac
+echo "Have a great day!"
+exit 0
