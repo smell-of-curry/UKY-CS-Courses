@@ -24,6 +24,7 @@ x64
 *.vcxproj.user
 *.sln
 *.suo
+*.swo
 *.user
 *.userossc
 *.usr
